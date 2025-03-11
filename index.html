@@ -3,75 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obrigado! | Cardápio Saudável - Coma Bem e Emagreça</title>
+    <title>Obrigado! | Cardápio Saudável</title>
     <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        
-        main {
-            padding: 60px 0;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
             text-align: center;
         }
         
         .thank-you-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 80px;
+            height: 80px;
             background-color: #4CAF50;
             color: white;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 40px;
-            margin-bottom: 30px;
+            margin: 0 auto 20px;
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #4CAF50;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .message {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        #timer {
             font-size: 1.1rem;
-            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        #timer {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #555;
             margin-bottom: 20px;
         }
         
@@ -79,18 +69,19 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-top: 20px;
         }
         
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             background-color: #4CAF50;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             text-decoration: none;
             transition: transform 0.3s;
         }
@@ -100,41 +91,29 @@
         }
         
         footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
+            margin-top: 20px;
             font-size: 0.9rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">Cardápio Saudável</div>
-        </div>
-    </header>
-    
-    <main class="container">
+    <div class="container">
         <div class="thank-you-icon">✓</div>
         <h1>Obrigado por se inscrever!</h1>
-        <p class="message">
-            Parabéns! Você acaba de dar um grande passo para uma vida mais saudável e equilibrada. Seu cardápio personalizado está a caminho do seu e-mail. Prepare-se para transformar sua alimentação com receitas deliciosas e nutritivas!
-        </p>
+        <p class="message">Parabéns! Você acaba de dar um grande passo para uma vida mais saudável. Seu cardápio personalizado está a caminho do seu e-mail. Prepare-se para transformar sua alimentação com receitas deliciosas e nutritivas!</p>
         <p id="timer">Seu cardápio chegará em até <span id="countdown">5</span> minutos.</p>
         
         <div class="social-icons">
-            <a href="#" class="social-icon" aria-label="Compartilhar no Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon" aria-label="Compartilhar no LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon" aria-label="Compartilhar no Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon" aria-label="Compartilhar no WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-    </main>
+    </div>
     
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Cardápio Saudável - Todos os direitos reservados</p>
-        </div>
+        &copy; 2025 Cardápio Saudável - Todos os direitos reservados
     </footer>
     
     <script>
@@ -142,9 +121,11 @@
         const countdownElement = document.getElementById("countdown");
         
         function updateCountdown() {
-            if (timeLeft > 0) {
+            if (timeLeft > 1) {
                 timeLeft--;
                 countdownElement.textContent = timeLeft;
+            } else {
+                countdownElement.textContent = "agora!";
             }
         }
         setInterval(updateCountdown, 60000);
